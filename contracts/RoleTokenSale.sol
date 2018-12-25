@@ -3,7 +3,7 @@ pragma solidity >=0.4.0 <0.6.0;
 import "./RoleToken.sol";
 
 contract RoleTokenSale {
-  address admin;
+  address payable admin;
   RoleToken public tokenContract;
   uint public tokenPrice;
   uint public tokensSold;
@@ -22,7 +22,7 @@ contract RoleTokenSale {
   //Buy Tokens
   function buyTokens(uint _numberOfTokens) public payable {
     require(msg.value == multiply(_numberOfTokens, tokenPrice));
-    require(tokenContract.balanceOf(this) >= _numberOfTokens);
+    require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
     require(tokenContract.transfer(msg.sender, _numberOfTokens));
 
     tokensSold += _numberOfTokens;
@@ -34,7 +34,7 @@ contract RoleTokenSale {
   function endSale() public {
     //Require admin
     require(msg.sender == admin);
-    require(tokenContract.transfer(admin, tokenContract.balanceOf(this)));
+    require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))));
     //Destroy contract
     selfdestruct(admin);
   }

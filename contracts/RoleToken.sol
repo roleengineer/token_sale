@@ -21,7 +21,6 @@ contract RoleToken {
 
   function transfer(address _to, uint _value) public returns(bool success) {
     require(balanceOf[msg.sender] >= _value);
-    require(_to != 0x0);
 
     balanceOf[msg.sender] -= _value;
     balanceOf[_to] += _value;
