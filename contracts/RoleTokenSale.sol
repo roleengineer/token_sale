@@ -3,7 +3,7 @@ pragma solidity >=0.4.0 <0.6.0;
 import "./RoleToken.sol";
 
 contract RoleTokenSale {
-  address payable admin;
+  address admin;
   RoleToken public tokenContract;
   uint public tokenPrice;
   uint public tokensSold;

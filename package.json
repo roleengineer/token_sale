@@ -1,0 +1,17 @@
+{
+  "name": "role-token-sale",
+  "version": "1.0.0",
+  "description": "Role Token Sale ICO",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "author": "roleengineer",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
